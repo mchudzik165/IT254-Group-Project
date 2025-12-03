@@ -1,0 +1,35 @@
+Before beginning, ensure you are using Python 3.11.0 along with the Arduino IDE being a compatible version. Along with running the code, you may encounter issues installing TensorFlow and a few other packets. These can be installed ahead time or as your going along with it. Do not expect it to run for the first try if none of these were used or set up previously.
+
+Instructions to Using AI Detection Camera Only:
+1. Download "face_detector.py" or "face_detector_v2.py". Either code will work with the v2 variant being slightly more updated.
+2. Open file in a coding cilent of your choice (Ex: Visual Code Studio) and get your keras file from Google Teachable Machine downloaded.
+  2a. To download a keras file, go to Google Teachable Machine and train your AI to do whatever you'd like it to do. Then to download it, ensure its under the "TensorFlow" or Keras variant.
+3. Insert both the Python file and the Keras file in the SAME folder or area where they can see each other (This is important as it will not work if its in seperate folders or executables).
+4. Based off your AI model, you may need to alter a few lines of code (Based off face_detector_v2.py, but same process and openly labeled on both files):
+  4a.  Line 14: Rename and change the Labels based on however many you have on Teachable Machine. (Ex: LABELS = ["Matt","Elliott", "Brayden", "Michael", "No one", "Other"] --> LABELS = ["1","2", "3", "4", "5", "6"...] etc.)
+  4b.  Line 17: Rename "converted_keras(5)" to whatever your keras file is named.
+  4c. Line 33: While optional, some systems are setup differently where their camera input is either 0 or 1. 0 being the default and 1 being a accessory. This can make the code fail to execute as it cannot locate the camera. 
+5. Once those changes have been made (or no changes done and using provided files), execute and turn on the program. It will take a moment and it will also flash a TensorFlow warning which you can ignore. This will be the time where if you haven't installed or used TensorFlow previously, where you will fail to run the program due to missing packets. Install these packets as they show up as errors (May want to google how to install python packets).
+6. Once the program fully executes, it does take a moment but it'll show up a box with the camera input. That is the AI camera detection working!
+
+Instructions to use AI Detection Camera w/ Arduino:
+1. Download "face_detector_Final.py".
+2. Open file in a coding cilent of your choice (Ex: Visual Code Studio) and get your keras file from Google Teachable Machine downloaded.
+3. Insert both the Python file and the Keras file in the SAME folder or area where they can see each other (This is important as it will not work if its in seperate folders or executables).
+4. Based off your AI model, you may need to alter a few lines of code (Based off face_detector_v2.py, but same process and openly labeled on both files):
+  4a.  Line 53: Rename and change the Labels based on however many you have on Teachable Machine. (Ex: LABELS = ["Matt","Elliott", "Brayden", "Michael", "No one", "Other"] --> LABELS = ["1","2", "3", "4", "5", "6"...] etc.)
+  4b.  Line 56: Rename "converted_keras(5)" to whatever your keras file is named.
+  4c. Line 72: While optional, some systems are setup differently where their camera input is either 0 or 1. 0 being the default and 1 being a accessory. This can make the code fail to execute as it cannot locate the camera. 
+5. Hook up your Arduino to your computer and open Arduino IDE.
+  5a.  Download "Arduino_Face_Detector.ino" and open it in Arduino IDE.
+6. Try your best to use the image provided. It should be called "arduino setup.JPG".
+  6a. Grab servo and hook it up to "A7" (Whatever input of your choosing of A1-A7. Just change Line 37 in the code) on the Arduino board and power it from the Arduino 5V port.
+
+Next steps are important. Do not skip or do out of order.
+7. Verify the code on Arduino IDE and upload it to the Arduino.
+8. Close out of Arduino IDE and go to your code client of your choosing (Ex: Visual Code Studio).
+9. Execute the program.
+10. It will take a moment for the program to turn on and work fully, ignore the TensorFlow warning.
+11. Once fully on, the camera from the Python program should directly send messages to the Arduino. Causing the servo to move based on whatever its seeing.
+
+
